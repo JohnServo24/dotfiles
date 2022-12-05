@@ -1,0 +1,122 @@
+configuration {
+    display-drun: "";
+    drun-display-format: "{icon} {name}";
+    modes: [drun];
+    show-icons: true;
+}
+
+* {
+   background-color: #191e3780; 
+   main-color: #191e37cc; 
+   foreground: #c5c8c6;
+   accent-color: #4b9cd3;
+}
+
+window {
+    background-color: transparent;
+    width:            100%;
+    height:           100%;
+    padding:          150px 200px;
+    border:           0;
+}
+
+mainbox {
+    background-color: transparent;
+    border-radius:    10px;
+    padding:          20px;
+}
+
+textbox {
+    text-color: @foreground;
+}
+
+listview {
+    columns: 	      5;
+    lines: 	          3;
+    cycle: 	          true;
+    scrollbar:        false;
+    layout:	          vertical;
+    fixed-height:     true;
+    fixed-columns:    true;
+    spacing:          10px;
+    padding:          2px 0px 0px;
+    background-color: transparent;
+    border: 2 0 0 0;
+    border-color: @foreground;
+}
+
+element {
+    orientation: vertical;
+    spacing: 10px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+element-text {
+    text-color:       @foreground;
+    vertical-align:   0.5;
+    horizontal-align: 0.5;
+}
+
+element-icon {
+    size: 128px;
+}
+
+element normal.normal {
+    background-color: inherit;
+    text-color:       @foreground;
+}
+
+element selected.normal {
+    background-color: @main-color;
+    text-color:       @foreground;
+}
+
+element alternate.normal {
+    background-color: inherit;
+    text-color:       @foreground;
+}
+
+element alternate.active {
+    background-color: @main-color;
+    text-color:       @foreground;
+}
+
+inputbar {
+    background-color: transparent;
+    text-color:       @foreground;
+    border-radius:    7px;
+    spacing:          0;
+    padding:          10px;
+    children:         [ textbox-prompt-colon,entry ];
+}
+
+entry {
+    background-color:   transparent;
+    placeholder:        "Search...";
+    cursor:             pointer;
+    placeholder-color:  @foreground;
+}
+
+textbox-prompt-colon {
+    expand:     false;
+    str:        "~>";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @accent-color;
+    background-color: transparent;
+}
+
+error-message {
+    padding:                     40px;
+    background-color:            black / 10%;
+    text-color:                  @foreground;
+}
+
+textbox {
+    background-color:            transparent;
+    text-color:                  @foreground;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+    highlight:                   none;
+}
