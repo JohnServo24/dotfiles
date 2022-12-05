@@ -27,7 +27,7 @@ k('n', '<C-l>', '<C-w>l', opts)
 k('n', 'gn', ':vsplit<CR>:bprevious<CR>', opts)
 k('n', 'gm', ':<c-w>q<cr>', opts)
 
--- Saving --
+-- Saving --key
 k('n', '<C-s>', ':w<CR>', opts)
 
 -- Select all --

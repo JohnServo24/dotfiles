@@ -58,7 +58,6 @@ return require('packer').startup(function(use)
     use 'lewis6991/impatient.nvim' -- impatient
     use 'lukas-reineke/indent-blankline.nvim' -- Indent lines
     use 'goolord/alpha-nvim' -- greeter
-    use 'folke/which-key.nvim' -- pop up of keybindings whenever we type a vim command
 
     -- cmp plugins
     use 'hrsh7th/nvim-cmp' -- The completion plugin
