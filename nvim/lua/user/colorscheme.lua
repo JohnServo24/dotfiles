@@ -23,3 +23,4 @@ require('vscode').setup({
         Cursor = { fg=c.vscDarkBlue, bg=c.vscLightGreen, bold=true },
     }
 })
+

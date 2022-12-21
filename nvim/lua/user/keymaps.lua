@@ -1,12 +1,14 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
 local k = vim.api.nvim_set_keymap
 
 -- Remap semicolon as leader key
 k('', '<Space>', '<Nop>', opts)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
+-- Remap ESC as CTRL className = {}
+k('', '<ESC>', '<C-c>', opts);
 
 -- MODES
 --  normal_mode = 'n'
@@ -16,11 +18,11 @@ vim.g.maplocalleader = ' '
 --  term_mode = 't'
 --  command_mode = 'c'
 
--- Normal --
+-- NORMAL --
 -- Better window naviagion --
 k('n', '<C-h>', '<C-w>h', opts)
-k('n', '<C-j>', '<C-w>j', opts)
 k('n', '<C-k>', '<C-w>k', opts)
+k('n', '<C-j>', '<C-w>j', opts)
 k('n', '<C-l>', '<C-w>l', opts)
 
 --  Window shortcuts --
@@ -47,57 +49,81 @@ k('n', '<C-Left>', ':vertical resize +3<CR>', opts)
 k('n', '<C-Right>', ':vertical resize -1<CR>', opts)
 
 -- Navigate buffers
-k('n', '<S-l>', ':bnext<CR>', opts)
-k('n', '<S-h>', ':bprevious<CR>', opts)
-k('n', '<C-c>', ':bd<cr>', opts)
+k('n', '<s-l>', ':bnext<CR>', opts)
+k('n', '<s-h>', ':bprevious<CR>', opts)
 
--- remove highlight from search
+-- Exit buffer
+k('n', '<C-c>', ':bd<CR>', opts)
+
+-- Remove highlight from search
 k('n', 'g/', ':noh<cr>', opts)
 
+-- Make cursor stay in place when appending next line
+k('n', 'J', 'mzJ`z', opts)
+
+-- Make cursor stay in the middle when searching
+k('n', 'n', 'nzzzv', opts)
+k('n', 'm', 'nzzzv', opts)
+
+-- Make cursor stay in the middle when half-jumping
+k('n', '<c-d>', '<C-d>zz', opts)
+k('n', '<c-u>', '<C-u>zz', opts)
+
+-- Yank to clipboard
+k('n', '<leader>y', '"+y', opts)
+k('n', '<leader>y', '"+y', opts)
+
+-- Delete to void
+k('n', '<leader>d', '"_d', opts)
+
+-- Replace all instances of current word
+k("n", "<leader>s", [[:%s/\<<c-r><c-w>\>/<c-r><c-w>/gi<left><left><left>]], opts)
+
+-- Make current file executable
+k("n", "<leader>x", "<cmd>!chmod +x %<cr>", opts);
+
+-- Indent/unindent lines
+k('n', '<Tab>', '>>', opts)
+k('n', '<S-tab>', '<<', opts)
+
 -- Insert --
-k('i', '<C-s>', '<ESC>:w<CR>', opts)
+k('i', '<C-s>', '<esc>:w<cr>', opts)
 
 -- Visual --
-k('v', '<C-s>', '<ESC>:w<CR>', opts)
-
--- Stay in indent mode
-k('v', '<', '<gv', opts)
-k('v', '>', '>gv', opts)
+k('v', '<C-s>', '<esc>:w<cr>', opts)
 
 -- Move text up and down
-k('v', '<A-k>', ':m .-1<CR>==', opts)
-k('v', '<A-j>', ':m .+2<CR>==', opts)
+k('v', 'K', ':m \'<-2<cr>gv=gv', opts)
+k('v', 'J', ':m \'>+1<cr>gv=gv', opts)
 
--- Maintain clipboard when copy pasting
+-- Maintain clipboard when copy pasting in visual mode
 k('v', 'p', '\'_dp', opts)
+
+-- Yank to clipboard in visual mode
+k('v', '<leader>y', '"+y', opts)
+
+-- Delete to void in visual mode
+k('n', '<leader>d', '"_d', opts)
 
 -- Visual Block --
 k('x', '<C-s>', '<ESC>:w<CR>', opts)
 
--- Move text up and down
-k('x', 'J', ':move \'>+2<CR>gv-gv', opts)
-k('x', 'K', ':move \'<-1<cr>gv-gv', opts)
-
--- Terminal --
--- Better terminal navigation
-k('t', '<C-h>', '<C-\\><C-N><C-w>h', term_opts)
-k('t', '<c-j>', '<c-\\><c-n><c-w>j', term_opts)
-k('t', '<c-k>', '<c-\\><c-n><c-w>k', term_opts)
-k('t', '<c-l>', '<c-\\><c-n><c-w>l', term_opts)
+-- Maintain clipboard when copy pasting in visual block mode
+k('x', 'p', '"_dp', opts)
 
 -- Telescope --
 k('n', '<leader>f',
     '<cmd>lua require"telescope.builtin".find_files(require("telescope.themes").get_dropdown({ previewer = false }))<CR>'
     , opts)
 
+-- Projects --
+k('n', '<F2>', ':Telescope projects<CR>', opts)
+
 -- Nvimtree
 k('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
 
 -- Format --
 k('n', 'gf', ':Format<CR>', opts)
-
--- Projects --
-k('n', '<F2>', ':Telescope projects<CR>', opts)
 
 -- Alpha greeter --
 k('n', '<F3>', ':Alpha<CR>', opts)
