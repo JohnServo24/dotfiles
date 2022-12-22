@@ -13,6 +13,9 @@ end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
+
 nvim_tree.setup {
     disable_netrw = true,
     hijack_netrw = true,
@@ -67,7 +70,7 @@ nvim_tree.setup {
     },
     actions = {
         open_file = {
-            window_picker = { enable = true },
+            window_picker = { enable = false },
             quit_on_open = true,
         },
     },

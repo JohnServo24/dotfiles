@@ -86,6 +86,10 @@ k("n", "<leader>x", "<cmd>!chmod +x %<cr>", opts);
 k('n', '<Tab>', '>>', opts)
 k('n', '<S-tab>', '<<', opts)
 
+-- Increment/decrement numbers
+k('n', '<leader>+', '<C-a>', opts)
+k('n', '<leader>-', '<C-x>', opts)
+
 -- Insert --
 k('i', '<C-s>', '<esc>:w<cr>', opts)
 
@@ -103,7 +107,11 @@ k('v', 'p', '\'_dp', opts)
 k('v', '<leader>y', '"+y', opts)
 
 -- Delete to void in visual mode
-k('n', '<leader>d', '"_d', opts)
+k('v', '<leader>d', '"_d', opts)
+
+-- Indent/unindent lines
+k('v', '<Tab>', '>gv', opts)
+k('v', '<S-tab>', '<gv', opts)
 
 -- Visual Block --
 k('x', '<C-s>', '<ESC>:w<CR>', opts)
@@ -112,18 +120,19 @@ k('x', '<C-s>', '<ESC>:w<CR>', opts)
 k('x', 'p', '"_dp', opts)
 
 -- Telescope --
-k('n', '<leader>f',
+k('n', '<leader>ff',
     '<cmd>lua require"telescope.builtin".find_files(require("telescope.themes").get_dropdown({ previewer = false }))<CR>'
     , opts)
+k('n', '<leader>fs', '<cmd>Telescope live_grep<cr>', opts)
+k('n', '<leader>fc', '<cmd>Telescope grep_string<cr>', opts)
+k('n', '<leader>fb', '<cmd>Telescope buffers<cr>', opts)
+k('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', opts)
 
 -- Projects --
 k('n', '<F2>', ':Telescope projects<CR>', opts)
 
 -- Nvimtree
 k('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
-
--- Format --
-k('n', 'gf', ':Format<CR>', opts)
 
 -- Alpha greeter --
 k('n', '<F3>', ':Alpha<CR>', opts)
