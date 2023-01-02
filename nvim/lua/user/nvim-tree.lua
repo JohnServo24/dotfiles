@@ -19,14 +19,14 @@ vim.g.loaded_netrwPlugin = 1
 nvim_tree.setup({
 	disable_netrw = true,
 	hijack_netrw = true,
-	open_on_setup = true,
-	open_on_setup_file = true,
+	open_on_setup = false,
+	open_on_setup_file = false,
 	ignore_ft_on_setup = {
 		"startify",
 		"dashboard",
 		"alpha",
 	},
-	open_on_tab = true,
+	open_on_tab = false,
 	hijack_cursor = false,
 	update_cwd = true,
 	hijack_directories = {
@@ -65,8 +65,8 @@ nvim_tree.setup({
 				{ key = "v", cb = tree_cb("vsplit") },
 			},
 		},
-		number = false,
-		relativenumber = false,
+		number = true,
+		relativenumber = true,
 	},
 	actions = {
 		open_file = {

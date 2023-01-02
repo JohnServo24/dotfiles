@@ -6,7 +6,7 @@ return require("packer").startup(function(use)
 	use("nvim-lua/popup.nvim") -- Popup API from vim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
 	use("Mofiqul/vscode.nvim") -- theme
-	use("andweeb/presence.nvim") -- Discord presence
+	--[[ use("andweeb/presence.nvim") -- Discord presence ]]
 	use("numToStr/Comment.nvim") -- Easily comment stuff
 	use("nvim-tree/nvim-web-devicons") -- web dev icons
 	use("nvim-tree/nvim-tree.lua") -- file tree

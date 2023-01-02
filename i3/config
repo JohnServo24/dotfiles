@@ -134,9 +134,9 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # switch and run app on workspace
-bindsym $mod+F1 workspace number $ws1 exec --no-startup-id alacritty 
-bindsym $mod+F2 workspace number $ws2 exec --no-startup-id alacritty
-bindsym $mod+F3 workspace number $ws3 exec --no-startup-id alacritty
+bindsym $mod+F1 workspace number $ws1 exec --no-startup-id alacritty -e nvim 
+bindsym $mod+F2 workspace number $ws2 exec --no-startup-id alacritty -e nvim
+bindsym $mod+F3 workspace number $ws3 exec --no-startup-id alacritty -e nvim
 bindsym $mod+F4 workspace number $ws4 exec --no-startup-id alacritty
 bindsym $mod+F5 workspace number $ws5 exec google-chrome-stable --new-window http://localhost:3000
 bindsym $mod+F6 workspace number $ws6 exec firefox --new-window -devtools http://localhost:3000
@@ -144,7 +144,6 @@ bindsym $mod+F7 workspace number $ws7 exec firefox --new-window https://pomofocu
 bindsym $mod+F8 workspace number $ws8 exec discord
 bindsym $mod+F9 workspace number $ws9 exec --no-startup-id alacritty -e ranger
 bindsym $mod+F10 workspace number $ws10 exec firefox
-
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
