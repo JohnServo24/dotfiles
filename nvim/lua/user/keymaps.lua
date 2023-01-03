@@ -145,8 +145,14 @@ k("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)
 -- Projects --
 k("n", "<F2>", ":Telescope projects<CR>", opts)
 
--- Nvimtree
+-- Nvimtree --
 k("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Alpha greeter --
 k("n", "<F3>", ":Alpha<CR>", opts)
+
+-- Fugitive --
+k("n", "<leader>gs", ":Git<CR>", opts)
+
+-- Undotree --
+k("n", "<leader>u", ":UndotreeShow<CR>:UndotreeFocus<CR>", opts)
