@@ -204,9 +204,8 @@ bindsym $mod+r mode "resize"
 for_window [class=".*"] border pixel 0
 
 # gaps
-# gaps inner 10
-# gaps outer 20
-# gaps top 50
+gaps inner 10
+smart_gaps on
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
