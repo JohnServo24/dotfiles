@@ -3,7 +3,6 @@ local o = vim.opt
 
 -- :help options
 o.backup = false				-- creates a backup file
-o.clipboard:append('unnamedplus')			--  allows nvim to access the system clipboard
 -- o.cmdheight = 4					-- more space in nvim command line for displaying messages
 o.completeopt = { 'menuone', 'noselect' }	-- mostly just for cmp
 o.conceallevel = 0				-- `` is ivisble in markdown files
@@ -14,7 +13,7 @@ o.ignorecase = true				-- ignore case in search patterns
 o.mouse = 'a'					-- enables mouse
 o.pumheight = 10				-- pop up menu height
 o.showmode = true				-- disables the mode (ex. -- INSERT --)
-o.showtabline = 4				-- always show tabs
+o.showtabline = 2				-- always show tabs
 o.smartcase = true				-- smart case
 o.smartindent = true				-- smart indent
 o.splitbelow = true				-- all horizontal splits go under the current window

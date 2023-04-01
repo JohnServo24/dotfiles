@@ -1,23 +1,27 @@
+-- Basic nvim stuff
 require("user.options")
 require("user.keymaps")
 require("user.plugins")
 require("user.colorscheme")
-require("user.cmp")
-require("user.lsp.mason")
-require("user.lsp.lspsaga")
-require("user.lsp.lspconfig")
-require("user.lsp.null-ls")
-require("user.telescope")
 require("user.treesitter")
---[[ require('user.discord') ]]
+
+-- LSP related
+require("user.lsp")
+require("user.fidget")
+
+-- Git related
+require("user.gitsigns")
+require("user.fugitive")
+
+-- QOL improvements
+require("user.telescope")
 require("user.autopairs")
 require("user.comment")
-require("user.gitsigns")
 require("user.nvim-tree")
-require("user.bufferline")
-require("user.toggleterm")
+require("user.undotree")
 require("user.lualine")
-require("user.project")
-require("user.impatient")
 require("user.indent-blankline")
-require("user.alpha")
+
+-- Extra stuff
+require("user.impatient")
+require("user.harpoon")

@@ -12,21 +12,17 @@ if not config_status_ok then
 end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
+local opts = { noremap = true, silent = true }
+local k = vim.api.nvim_set_keymap
 
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
+k("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 nvim_tree.setup({
 	disable_netrw = true,
 	hijack_netrw = true,
-	open_on_setup = false,
-	open_on_setup_file = false,
-	ignore_ft_on_setup = {
-		"startify",
-		"dashboard",
-		"alpha",
-	},
-	open_on_tab = false,
+	open_on_tab = true,
 	hijack_cursor = false,
 	update_cwd = true,
 	hijack_directories = {
@@ -54,7 +50,8 @@ nvim_tree.setup({
 		timeout = 500,
 	},
 	view = {
-		width = 30,
+		adaptive_size = true,
+		width = 35,
 		hide_root_folder = false,
 		side = "left",
 		mappings = {
@@ -67,6 +64,13 @@ nvim_tree.setup({
 		},
 		number = true,
 		relativenumber = true,
+		-- float = {
+		-- 	enable = true,
+		-- 	open_win_config = {
+		-- 		width = 500,
+		-- 		height = 500,
+		-- 	},
+		-- },
 	},
 	actions = {
 		open_file = {

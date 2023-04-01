@@ -51,7 +51,8 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show drun
+# bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -59,10 +60,10 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+Ctrl+h focus left
+bindsym $mod+Ctrl+j focus down
+bindsym $mod+Ctrl+k focus up
+bindsym $mod+Ctrl+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -134,16 +135,13 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # switch and run app on workspace
-bindsym $mod+F1 workspace number $ws1 exec --no-startup-id alacritty -e nvim 
-bindsym $mod+F2 workspace number $ws2 exec --no-startup-id alacritty -e nvim
-bindsym $mod+F3 workspace number $ws3 exec --no-startup-id alacritty -e nvim
-bindsym $mod+F4 workspace number $ws4 exec --no-startup-id alacritty
-bindsym $mod+F5 workspace number $ws5 exec google-chrome-stable --new-window http://localhost:3000
-bindsym $mod+F6 workspace number $ws6 exec firefox --new-window -devtools http://localhost:3000
-bindsym $mod+F7 workspace number $ws7 exec firefox --new-window https://pomofocus.io 
-bindsym $mod+F8 workspace number $ws8 exec discord
-bindsym $mod+F9 workspace number $ws9 exec --no-startup-id alacritty -e ranger
-bindsym $mod+F10 workspace number $ws10 exec firefox
+bindsym $mod+F1 workspace number $ws1 exec --no-startup-id alacritty -e tmux 
+bindsym $mod+F2 workspace number $ws2 exec google-chrome-stable --new-window http://localhost:3000
+bindsym $mod+F3 workspace number $ws3 exec postman
+bindsym $mod+F4 workspace number $ws4 exec firefox
+bindsym $mod+F8 workspace number $ws8 exec zoom
+bindsym $mod+F9 workspace number $ws9 exec viber
+bindsym $mod+F10 workspace number $ws10 exec discord
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -166,7 +164,7 @@ workspace $ws6 output DP-1
 workspace $ws7 output DP-1
 workspace $ws8 output DP-1
 workspace $ws9 output DP-1
-workspace $ws10 output HDMI-0
+workspace $ws10 output DP-1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -206,15 +204,16 @@ bindsym $mod+r mode "resize"
 for_window [class=".*"] border pixel 0
 
 # gaps
-gaps inner 10
-gaps outer 20
-gaps top 50
+# gaps inner 10
+# gaps outer 20
+# gaps top 50
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	mode invisible
-        status_command i3status
+ 	mode dock
+    status_command i3status
+    position top
 }
 
 bindsym $mod+shift+x exec i3lock
@@ -229,9 +228,18 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+Ctrl+greater move workspace to output right
 bindsym $mod+Ctrl+less move workspace to output left
 
+# Traverse through main workspaces
+bindsym $mod+h workspace number $ws1
+bindsym $mod+j workspace number $ws2
+bindsym $mod+k workspace number $ws3
+bindsym $mod+l workspace number $ws4
+
+# Screenshots
+bindsym Print exec flameshot gui 
+
 exec openrgb -p main
-exec_always /home/john/.config/polybar/launch.sh
-exec_always feh --bg-scale /home/john/Pictures/wallpaper/wallpaper-3.jpg
+# exec_always /home/john/.config/polybar/launch.sh
+exec_always feh --bg-scale /home/johnservo/Pictures/wallpaper/wallpaper.jpg
 exec_always xrandr --output HDMI-0 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-0 --off --output DP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off
-exec_always picom -f
+exec_always picom 
 exec_always autotiling

@@ -1,6 +1,6 @@
-local status_ok, lualine = pcall(require, 'lualine')
+local status_ok, lualine = pcall(require, "lualine")
 if not status_ok then
-    return
+	return
 end
 
 local hide_in_width = function()
@@ -21,7 +21,7 @@ local diff = {
 	"diff",
 	colored = false,
 	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
-    cond = hide_in_width
+	cond = hide_in_width,
 }
 
 local mode = {
@@ -45,7 +45,7 @@ local branch = {
 
 local location = {
 	"location",
-	padding = 0,
+	padding = 1,
 }
 
 -- cool function for progress
@@ -62,36 +62,36 @@ local spaces = function()
 	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
-lualine.setup {
-    options = {
-        icons_enabled = true,
-        theme = 'auto',
-        component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
-        disabled_filetypes = {
-            statusline = {},
-            winbar = {},
-            'dashboard',
-            'NvimTree',
-            'Outline',
-        },
-        ignore_focus = {},
-        always_divide_middle = true,
-        globalstatus = false,
-        refresh = {
-            statusline = 1000,
-            tabline = 1000,
-            winbar = 1000,
-        }
-    },
-    sections = {
-		lualine_a = { branch, diagnostics },
-		lualine_b = { mode },
+lualine.setup({
+	options = {
+		icons_enabled = true,
+		theme = "gruvbox-material",
+        component_separators = { left = '', right = ''},
+        section_separators = { left = '', right = ''},
+		disabled_filetypes = {
+			statusline = {},
+			winbar = {},
+			"dashboard",
+			"NvimTree",
+			"Outline",
+		},
+		ignore_focus = {},
+		always_divide_middle = true,
+		globalstatus = false,
+		refresh = {
+			statusline = 1000,
+			tabline = 1000,
+			winbar = 1000,
+		},
+	},
+	sections = {
+		lualine_a = { mode },
+		lualine_b = { diagnostics, branch },
 		lualine_c = {},
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_x = { diff, spaces, "encoding", filetype },
-		lualine_y = { location },
-		lualine_z = { progress },
+		lualine_y = { progress },
+		lualine_z = { location },
 	},
 	inactive_sections = {
 		lualine_a = {},
@@ -101,8 +101,8 @@ lualine.setup {
 		lualine_y = {},
 		lualine_z = {},
 	},
-    tabline = {},
-    winbar = {},
-    inactive_winbar = {},
-    extensions = {}
-}
+	tabline = {},
+	winbar = {},
+	inactive_winbar = {},
+	extensions = {},
+})

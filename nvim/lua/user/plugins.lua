@@ -1,67 +1,64 @@
--- Only required if you have packer configured as `opt`
-vim.cmd([[packadd packer.nvim]])
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-return require("packer").startup(function(use)
-	use("wbthomason/packer.nvim") -- Packer can manage itself
-	use("nvim-lua/popup.nvim") -- Popup API from vim
-	use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
-	use("Mofiqul/vscode.nvim") -- theme
-	--[[ use("andweeb/presence.nvim") -- Discord presence ]]
-	use("numToStr/Comment.nvim") -- Easily comment stuff
-	use("nvim-tree/nvim-web-devicons") -- web dev icons
-	use("nvim-tree/nvim-tree.lua") -- file tree
-	use("nvim-lualine/lualine.nvim") -- status bar
-	use("akinsho/bufferline.nvim") -- bufferline
-	use("moll/vim-bbye")
-	use("akinsho/toggleterm.nvim") -- terminal
-	use("ahmedkhalf/project.nvim") -- project manager
-	use("lewis6991/impatient.nvim") -- impatient
-	use("lukas-reineke/indent-blankline.nvim") -- Indent lines
-	use("goolord/alpha-nvim") -- greeter
-	use("iamcco/markdown-preview.nvim") -- markdown previewer
-	use("tpope/vim-surround") -- for surrounding
+local plugins = {
+    "rebelot/kanagawa.nvim",
+    "numToStr/Comment.nvim",
+    "nvim-tree/nvim-tree.lua",
+	"nvim-lua/plenary.nvim",
+    "theprimeagen/harpoon",
+    "nvim-tree/nvim-web-devicons",
+    "nvim-telescope/telescope.nvim",
+	"nvim-lualine/lualine.nvim",
+	"mbbill/undotree",
+    "tpope/vim-fugitive",
+	"lewis6991/gitsigns.nvim",
+	"lewis6991/impatient.nvim",
+	"lukas-reineke/indent-blankline.nvim",
+    "windwp/nvim-autopairs",
+	"iamcco/markdown-preview.nvim",
+	"tpope/vim-surround",
+	"p00f/nvim-ts-rainbow",
+	"JoosepAlviste/nvim-ts-context-commentstring",
+    "windwp/nvim-ts-autotag",
+    "j-hui/fidget.nvim",
+    "jose-elias-alvarez/null-ls.nvim",
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = function()
+            require("nvim-treesitter.install").update({ with_sync = true })
+        end,
+    },
+    {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
+        dependencies = {
+          -- LSP Support
+          {'neovim/nvim-lspconfig'},
+          {
+            'williamboman/mason.nvim',
+            build = function()
+              pcall(vim.cmd, 'MasonUpdate')
+            end,
+          },
+          {'williamboman/mason-lspconfig.nvim'},
+          -- Autocompletion
+          {'hrsh7th/nvim-cmp'},
+          {'hrsh7th/cmp-nvim-lsp'},
+          {'L3MON4D3/LuaSnip'},
+        }
+  },
+}
 
-	-- Autocompletion
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-
-	-- Snippets
-	use("L3MON4D3/LuaSnip")
-	use("rafamadriz/friendly-snippets")
-	use("saadparwaiz1/cmp_luasnip")
-
-	-- LSP
-	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
-	use("neovim/nvim-lspconfig")
-	use("hrsh7th/cmp-nvim-lsp")
-	use({ "glepnir/lspsaga.nvim", branch = "main" })
-	use("jose-elias-alvarez/typescript.nvim")
-	use("onsails/lspkind.nvim")
-
-	-- Code formatting
-	use("jose-elias-alvarez/null-ls.nvim")
-	use("jayp0521/mason-null-ls.nvim")
-
-	-- Telescope
-	use("nvim-telescope/telescope.nvim") -- telescope
-
-	-- Treesitter
-	use({
-		"nvim-treesitter/nvim-treesitter", -- Treesitter
-		run = function()
-			require("nvim-treesitter.install").update({ with_sync = true })
-		end,
-	})
-
-	-- Auto-closing
-	use("windwp/nvim-autopairs") -- auto pairing for brackets
-	use("windwp/nvim-ts-autotag") -- auto tags
-
-	use("p00f/nvim-ts-rainbow") -- ts rainbow for brackets
-	use("JoosepAlviste/nvim-ts-context-commentstring") -- helps with commenting out JSX
-
-	-- Git
-	use("lewis6991/gitsigns.nvim")
-end)
+local opts = {}
+require("lazy").setup(plugins, opts);
