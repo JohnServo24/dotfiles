@@ -42,6 +42,11 @@ end
 -- Lua ls
 lsp_config.lua_ls.setup(lsp.nvim_lua_ls())
 
+-- Emmet ls
+lsp_config.emmet_ls.setup({
+    filetypes = { 'html', 'javascript', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+})
+
 ------------------------------
 lsp.setup()
 ------------------------------
