@@ -11,7 +11,10 @@ lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
 
     k({ 'n', 'x' }, 'gq', function()
-        vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
+        vim.lsp.buf.format({
+            async = false,
+            timeout_ms = 10000
+        })
     end)
 end)
 
@@ -44,8 +47,23 @@ lsp_config.lua_ls.setup(lsp.nvim_lua_ls())
 
 -- Emmet ls
 lsp_config.emmet_ls.setup({
-    filetypes = { 'html', 'javascript', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+    filetypes = { 'html', 'javascript', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'vue' },
 })
+
+----- SNIPPETS -----
+local luasnip_ok, luasnip = pcall(require, 'luasnip')
+if not luasnip_ok then
+    return
+end
+
+local from_vscode_ok, from_vscode = pcall(require, "luasnip.loaders.from_vscode")
+if not from_vscode_ok then
+    return
+end
+
+from_vscode.lazy_load()
+luasnip.filetype_extend("vue", { "vue" })
+luasnip.filetype_extend("javascript", { "javascriptreact" })
 
 ------------------------------
 lsp.setup()
@@ -53,10 +71,11 @@ lsp.setup()
 
 ----- NULL LS -----
 local setup, null_ls = pcall(require, "null-ls")
-local null_opts = lsp.build_options('null-ls', {})
 if not setup then
     return
 end
+
+local null_opts = lsp.build_options('null-ls', {})
 
 local formatting = null_ls.builtins.formatting -- to setup formatters
 local diagnostics = null_ls.builtins.diagnostics -- to setup linters
@@ -68,12 +87,12 @@ null_ls.setup({
     sources = {
         formatting.prettier.with({
             condition = function(utils)
-                return utils.root_has_file(".prettierrc.json")
+                return utils.root_has_file(".prettierrc")
             end,
         }),
         diagnostics.eslint_d.with({
             condition = function(utils)
-                return utils.root_has_file(".eslintrc.json")
+                return utils.root_has_file(".eslintrc")
             end,
         }),
     }

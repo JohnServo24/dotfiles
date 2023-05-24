@@ -1,6 +1,11 @@
-local status_ok, comment = pcall(require, 'Comment')
-if not status_ok then
+local comment_ok, comment = pcall(require, 'Comment')
+if not comment_ok then
   return
+end
+
+local jsx_comment_ok, jsx_comment = pcall(require, 'ts_context_commentstring.integrations.comment_nvim');
+if not jsx_comment_ok then
+    return
 end
 
 comment.setup({
@@ -42,7 +47,7 @@ comment.setup({
         extra = true,
     },
     ---Function to call before (un)comment
-    pre_hook = nil,
+    pre_hook = jsx_comment.create_pre_hook(),
     ---Function to call after (un)comment
     post_hook = nil,
 })

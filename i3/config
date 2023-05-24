@@ -136,7 +136,7 @@ bindsym $mod+0 workspace number $ws10
 
 # switch and run app on workspace
 bindsym $mod+F1 workspace number $ws1 exec --no-startup-id alacritty -e tmux 
-bindsym $mod+F2 workspace number $ws2 exec google-chrome-stable --new-window http://localhost:3000
+bindsym $mod+F2 workspace number $ws2 exec brave --new-window http://localhost:3000
 bindsym $mod+F3 workspace number $ws3 exec postman
 bindsym $mod+F4 workspace number $ws4 exec firefox
 bindsym $mod+F8 workspace number $ws8 exec zoom
@@ -204,13 +204,13 @@ bindsym $mod+r mode "resize"
 for_window [class=".*"] border pixel 0
 
 # gaps
-gaps inner 10
+gaps inner 5 
 smart_gaps on
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    mode dock
+ 	mode dock
     status_command i3status
     position top
 }
@@ -228,10 +228,10 @@ bindsym $mod+Ctrl+greater move workspace to output right
 bindsym $mod+Ctrl+less move workspace to output left
 
 # Traverse through main workspaces
-bindsym $mod+h workspace number $ws1
-bindsym $mod+j workspace number $ws2
-bindsym $mod+k workspace number $ws3
-bindsym $mod+l workspace number $ws4
+bindsym $mod+j workspace number $ws1
+bindsym $mod+k workspace number $ws2
+bindsym $mod+l workspace number $ws3
+bindsym $mod+h workspace number $ws4
 
 # Screenshots
 bindsym Print exec flameshot gui 

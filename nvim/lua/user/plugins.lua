@@ -33,6 +33,8 @@ local plugins = {
     "windwp/nvim-ts-autotag",
     "j-hui/fidget.nvim",
     "jose-elias-alvarez/null-ls.nvim",
+    "andweeb/presence.nvim",
+    "rest-nvim/rest.nvim",
     {
         "nvim-treesitter/nvim-treesitter",
         build = function()
@@ -55,7 +57,10 @@ local plugins = {
           -- Autocompletion
           {'hrsh7th/nvim-cmp'},
           {'hrsh7th/cmp-nvim-lsp'},
-          {'L3MON4D3/LuaSnip'},
+          {
+            'L3MON4D3/LuaSnip',
+            dependencies = { "rafamadriz/friendly-snippets" }
+          },
         }
   },
 }

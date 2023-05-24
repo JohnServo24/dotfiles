@@ -37,6 +37,6 @@ o.signcolumn = 'yes'            		-- always show the sign column, otherwise it w
 o.wrap = false                   		-- deals with wrap
 o.scrolloff = 8                 		-- num of screen lines to keep above and below the cursor
 o.sidescrolloff = 8             		-- same as above, but left to right
-o.colorcolumn = '80'                    -- color line as to when the line of code should be cut
+-- o.colorcolumn = '80'                    -- color line as to when the line of code should be cut
 o.backspace = 'indent,eol,start'        -- makes backspace work properly
 

@@ -15,6 +15,8 @@ treesitter.setup({
         "json",
         "markdown",
         "lua",
+        "http",
+        "vue"
     },
 	auto_install = true,
 	-- enable syntax highlighting
@@ -32,8 +34,8 @@ treesitter.setup({
 		enable = true,
 	},
 	-- enable autotagging (w/ nvim-ts-autotag plugin)
-	autotag = { 
-        enable = true 
+	autotag = {
+        enable = true
     },
     sync_install = false,
 	-- auto install above language parsers
