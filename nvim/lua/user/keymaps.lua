@@ -40,7 +40,10 @@ k("n", "<C-u>", "<C-u>zz", opts)
 k("n", "<leader>y", '"+y', opts)
 
 -- Replace all instances of current word
-k("n", "<leader>s", [[:%s/\<<c-r><c-w>\>/<c-r><c-w>/gi<left><left><left>]], opts)
+k("n", "<leader>sa", [[:%s/\<<c-r><c-w>\>/<c-r><c-w>/gi<left><left><left>]], opts)
+
+-- Replace all instances of current word in the current lin
+k("n", "<leader>sl", [[:s/\<<c-r><c-w>\>/<c-r><c-w>/gi<left><left><left>]], opts)
 
 -- Make current file executable
 k("n", "<leader>x", "<cmd>!chmod +x %<CR>", opts)
