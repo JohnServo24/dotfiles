@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-    "rebelot/kanagawa.nvim",
+    "catppuccin/nvim",
     "numToStr/Comment.nvim",
     "nvim-lua/plenary.nvim",
     "theprimeagen/harpoon",

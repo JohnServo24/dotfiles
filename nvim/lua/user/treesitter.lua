@@ -6,7 +6,6 @@ end
 -- configure treesitter
 treesitter.setup({
 	ensure_installed = {
-        "help",
         "javascript",
         "typescript",
         "tsx",
