@@ -26,10 +26,6 @@ k("n", "<F5>", ":luafile %<CR>", opts)
 k("n", "<F6>", ":lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR>", opts)
 k("n", "<F7>", ":edit<CR>", opts)
 
--- Filetree
-k("n", "<leader>ee", ":Rex<CR>", opts)
-k("n", "<leader>er", ":e .<CR>", opts)
-
 -- Make cursor stay in place when appending next line
 k("n", "J", "mzJ`z", opts)
 

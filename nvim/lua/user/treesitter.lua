@@ -6,7 +6,6 @@ end
 -- configure treesitter
 treesitter.setup({
 	ensure_installed = {
-        "help",
         "javascript",
         "typescript",
         "tsx",
@@ -15,8 +14,7 @@ treesitter.setup({
         "json",
         "markdown",
         "lua",
-        "http",
-        "vue"
+        "http"
     },
 	auto_install = true,
 	-- enable syntax highlighting
@@ -42,10 +40,5 @@ treesitter.setup({
 	context_commentstring = {
 		enable = true,
 		enable_autocmd = false,
-	},
-	rainbow = {
-		enable = true,
-		extended_mode = false,
-		max_file_lines = nil,
-	},
+	}
 })
