@@ -135,7 +135,7 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # switch and run app on workspace
-bindsym $mod+F1 workspace number $ws1 exec --no-startup-id alacritty -e tmux 
+bindsym $mod+F1 workspace number $ws1 exec --no-startup-id alacritty 
 bindsym $mod+F2 workspace number $ws2 exec brave --new-window http://localhost:3000
 bindsym $mod+F3 workspace number $ws3 exec postman
 bindsym $mod+F4 workspace number $ws4 exec firefox
@@ -242,6 +242,6 @@ bindsym Print exec flameshot gui
 exec openrgb -p main
 # exec_always /home/john/.config/polybar/launch.sh
 exec_always feh --bg-scale /home/johnservo/Pictures/wallpaper/wallpaper.png
-exec_always xrandr --output DP-3 --primary --mode 1920x1080 --pos 1920x0 --rotate normal HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal
+exec_always xrandr --output DP-3 --mode 1920x1080 --pos 1920x0 --rotate normal HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
 exec_always picom 
 exec_always autotiling
