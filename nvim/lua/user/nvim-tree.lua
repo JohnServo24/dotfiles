@@ -11,7 +11,7 @@ local k = vim.api.nvim_set_keymap
 
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
-k("n", "<leader>e", ":NvimTreeFocus<CR>", opts)
+k("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 nvim_tree.setup({
 	disable_netrw = true,
@@ -33,7 +33,7 @@ nvim_tree.setup({
 		},
 	},
 	update_focused_file = {
-		enable = false,
+		enable = true,
 		update_root = true,
 		update_cwd = true,
 		ignore_list = {},
