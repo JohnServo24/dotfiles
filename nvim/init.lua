@@ -21,7 +21,7 @@ require("user.nvim-tree")
 require("user.undotree")
 require("user.lualine")
 require("user.indent-blankline")
--- require("user.harpoon")
+require("user.harpoon")
 
 -- Extra stuff
 require("user.rest")

@@ -15,7 +15,7 @@ local plugins = {
     "rebelot/kanagawa.nvim",
     "numToStr/Comment.nvim",
     "nvim-lua/plenary.nvim",
-    -- "theprimeagen/harpoon",
+    "theprimeagen/harpoon",
     "nvim-tree/nvim-tree.lua",
     "nvim-tree/nvim-web-devicons",
     "nvim-telescope/telescope.nvim",
