@@ -26,10 +26,6 @@ k("n", "<F5>", ":luafile %<CR>", opts)
 k("n", "<F6>", ":lua vim.lsp.stop_client(vim.lsp.get_active_clients())<CR>", opts)
 k("n", "<F7>", ":edit<CR>", opts)
 
--- Filetree
-k("n", "<leader>ee", ":Rex<CR>", opts)
-k("n", "<leader>er", ":e .<CR>", opts)
-
 -- Make cursor stay in place when appending next line
 k("n", "J", "mzJ`z", opts)
 
@@ -44,7 +40,7 @@ k("n", "<C-u>", "<C-u>zz", opts)
 k("n", "<leader>y", '"+y', opts)
 
 -- Replace all instances of current word
-k("n", "<leader>sa", [[:%s/\<<c-r><c-w>\>/<c-r><c-w>/gi<left><left><left>]], opts)
+k("n", "<leader>ss", [[:%s/\<<c-r><c-w>\>/<c-r><c-w>/gi<left><left><left>]], opts)
 
 -- Replace all instances of current word in the current lin
 k("n", "<leader>sl", [[:s/\<<c-r><c-w>\>/<c-r><c-w>/gi<left><left><left>]], opts)
@@ -55,6 +51,10 @@ k("n", "<leader>x", "<cmd>!chmod +x %<CR>", opts)
 -- Increment/decrement numbers
 k("n", "<leader>+", "<C-a>", opts)
 k("n", "<leader>-", "<C-x>", opts)
+
+-- Git
+k("n", "<leader>ga", ":Git add . <CR>", opts)
+k("n", "<leader>gj", ":Git commit -m \"\"<Left>", opts)
 
 -- VISUAL --
 -- Copy (NEED XCLIP IN ARCH)

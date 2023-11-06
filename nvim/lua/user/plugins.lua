@@ -34,6 +34,14 @@ local plugins = {
     "andweeb/presence.nvim",
     "rest-nvim/rest.nvim",
     {
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+    },
+    {
         "j-hui/fidget.nvim",
         tag = "legacy",
         event = "LspAttach",

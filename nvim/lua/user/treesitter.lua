@@ -15,7 +15,8 @@ treesitter.setup({
         "markdown",
         "lua",
         "http",
-        "vue"
+        "vue",
+        "svelte"
     },
 	auto_install = true,
 	-- enable syntax highlighting
@@ -44,6 +45,7 @@ treesitter.setup({
 	},
 	rainbow = {
 		enable = true,
+        disable = { "svelte" },
 		extended_mode = false,
 		max_file_lines = nil,
 	},
