@@ -52,6 +52,10 @@ k("n", "<leader>x", "<cmd>!chmod +x %<CR>", opts)
 k("n", "<leader>+", "<C-a>", opts)
 k("n", "<leader>-", "<C-x>", opts)
 
+-- Git
+k("n", "<leader>ga", ":Git add . <CR>", opts)
+k("n", "<leader>gj", ":Git commit -m \"\"<Left>", opts)
+
 -- VISUAL --
 -- Copy (NEED XCLIP IN ARCH)
 k("v", "<leader>y", '"+y', opts)
@@ -59,3 +63,4 @@ k("v", "<leader>y", '"+y', opts)
 -- Indent/unindent lines
 k("v", "<Tab>", ">gv", opts)
 k("v", "<S-tab>", "<gv", opts)
+
