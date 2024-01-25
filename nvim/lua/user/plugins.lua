@@ -33,6 +33,15 @@ local plugins = {
     "jose-elias-alvarez/null-ls.nvim",
     "andweeb/presence.nvim",
     "rest-nvim/rest.nvim",
+    -- {
+    --     "Exafunction/codeium.vim",
+    --     config = function()
+    --         vim.keymap.set('i', '<C-s>s', function() return vim.fn['codeium#Accept']() end, { expr = true })
+    --         vim.keymap.set('i', '<C-s>n', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+    --         vim.keymap.set('i', '<C-s>p', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+    --         vim.keymap.set('i', '<C-s>c', function() return vim.fn['codeium#Clear']() end, { expr = true })
+    --     end
+    -- },
     {
         "nvim-tree/nvim-tree.lua",
         version = "*",

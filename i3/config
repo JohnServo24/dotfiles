@@ -136,10 +136,10 @@ bindsym $mod+0 workspace number $ws10
 
 # switch and run app on workspace
 bindsym $mod+F1 workspace number $ws1 exec --no-startup-id alacritty
-bindsym $mod+F2 workspace number $ws2 exec brave
+bindsym $mod+F2 workspace number $ws2 exec google-chrome-stable
 bindsym $mod+F3 workspace number $ws3 exec postman
 bindsym $mod+F4 workspace number $ws4 exec firefox
-bindsym $mod+F10 workspace number $ws10 exec slack
+bindsym $mod+F10 workspace number $ws10 exec discord
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
