@@ -16,15 +16,20 @@ local plugins = {
     "numToStr/Comment.nvim",
     "nvim-lua/plenary.nvim",
     "theprimeagen/harpoon",
-    "nvim-tree/nvim-tree.lua",
     "nvim-tree/nvim-web-devicons",
     "nvim-telescope/telescope.nvim",
-    "nvim-lualine/lualine.nvim",
     "mbbill/undotree",
     "tpope/vim-fugitive",
     "lewis6991/gitsigns.nvim",
     "lewis6991/impatient.nvim",
-    "lukas-reineke/indent-blankline.nvim",
+    -- TODO: Setup indent blankline
+    -- {
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     main = "ibl",
+    --     ---@module "ibl"
+    --     ---@type ibl.config
+    --     opts = {}
+    -- },
     "windwp/nvim-autopairs",
     "iamcco/markdown-preview.nvim",
     "tpope/vim-surround",
@@ -33,7 +38,7 @@ local plugins = {
     "windwp/nvim-ts-autotag",
     "jose-elias-alvarez/null-ls.nvim",
     "andweeb/presence.nvim",
-    "rest-nvim/rest.nvim",
+    "nvim-java/nvim-java",
     {
         "j-hui/fidget.nvim",
         tag = "legacy",
@@ -42,7 +47,7 @@ local plugins = {
     {
         "nvim-treesitter/nvim-treesitter",
         build = function()
-            require("nvim-treesitter.install").update({ with_sync = true })
+            require("nvim-treesitter.install").update({ with_sync = true })()
         end,
     },
     {

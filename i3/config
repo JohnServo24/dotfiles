@@ -235,7 +235,7 @@ bindsym $mod+Ctrl+less move workspace to output left
 bindsym $mod+j workspace number $ws1
 bindsym $mod+k workspace number $ws2
 bindsym $mod+l workspace number $ws3
-bindsym $mod+h workspace number $ws4
+bindsym $mod+semicolon workspace number $ws4
 
 # Screenshots
 bindsym Print exec flameshot gui 

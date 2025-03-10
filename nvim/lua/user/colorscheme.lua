@@ -32,11 +32,7 @@ require('kanagawa').setup({
             TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
         }
     end,
-    theme = ":ave",    -- Load "wave" theme when 'background' option is not set
-    background = {     -- map the value of 'background' option to a theme
-        dark = "wave", -- try "dragon" !
-        light = "lotus"
-    },
+    theme = "wave", -- Load "wave" theme when 'background' option is not set
 })
 
 -- setup must be called before loading

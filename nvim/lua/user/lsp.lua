@@ -54,6 +54,9 @@ if not lsp_config_ok then
     return
 end
 
+-- jdtls
+lsp_config.jdtls.setup({})
+
 -- Lua ls
 lsp_config.lua_ls.setup(lsp.nvim_lua_ls())
 
