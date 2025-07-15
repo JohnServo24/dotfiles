@@ -93,8 +93,8 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -135,11 +135,13 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # switch and run app on workspace
-bindsym $mod+F1 workspace number $ws1 exec --no-startup-id alacritty
-bindsym $mod+F2 workspace number $ws2 exec google-chrome-stable
+bindsym $mod+F1 workspace number $ws1 exec --no-startup-id alacritty 
+bindsym $mod+F2 workspace number $ws2 exec brave --new-window http://localhost:3000
 bindsym $mod+F3 workspace number $ws3 exec postman
 bindsym $mod+F4 workspace number $ws4 exec firefox
-bindsym $mod+F10 workspace number $ws10 exec firefox -new-window https://app.slack.com/client/T054Q6605/D0791U131BK
+bindsym $mod+F8 workspace number $ws8 exec zoom
+bindsym $mod+F9 workspace number $ws9 exec viber
+bindsym $mod+F10 workspace number $ws10 exec discord
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -153,16 +155,16 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-workspace $ws1 output HDMI-2
-workspace $ws2 output HDMI-2
-workspace $ws3 output HDMI-2
-workspace $ws4 output HDMI-2
-workspace $ws5 output HDMI-2
-workspace $ws6 output HDMI-2
-workspace $ws7 output HDMI-2
-workspace $ws8 output HDMI-2
-workspace $ws9 output HDMI-2
-workspace $ws10 output eDP-1
+workspace $ws1 output HDMI-0
+workspace $ws2 output HDMI-0
+workspace $ws3 output HDMI-0
+workspace $ws4 output HDMI-0
+workspace $ws5 output DP-3
+workspace $ws6 output DP-3
+workspace $ws7 output DP-3
+workspace $ws8 output DP-3
+workspace $ws9 output DP-3
+workspace $ws10 output DP-3
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -199,26 +201,25 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # windows
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 2
 smart_borders on
 
 # gaps
 gaps inner 5
 gaps outer 0
-smart_gaps on 
+# smart_gaps on 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
  	mode dock
     status_command i3status
-    position bottom
-    tray_output eDP-1
+    position top
 }
 
 bindsym $mod+Shift+i mark --add "swapee"; mode "swap"
 
-bindsym $mod+shift+x exec i3lock -t -i /home/johnservo/Pictures/wallpaper/wallpaperlock.jpg
+bindsym $mod+shift+x exec i3lock -t -i /home/johnservo/Pictures/wallpaper/wallpaper-lock.png
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -226,19 +227,22 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# Move focused workspace between monitors
+bindsym $mod+Ctrl+greater move workspace to output right
+bindsym $mod+Ctrl+less move workspace to output left
+
 # Traverse through main workspaces
 bindsym $mod+j workspace number $ws1
 bindsym $mod+k workspace number $ws2
 bindsym $mod+l workspace number $ws3
-bindsym $mod+semicolon workspace number $ws4
-bindsym $mod+n workspace number $ws5
-bindsym $mod+h workspace number $ws6
+bindsym $mod+h workspace number $ws4
 
 # Screenshots
 bindsym Print exec flameshot gui 
 
+exec openrgb -p main
 # exec_always /home/john/.config/polybar/launch.sh
-exec_always feh --bg-scale /home/johnservo/Pictures/wallpaper/wallpaper.jpg
-exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-2 --mode 1920x1080 --pos 0x0 --rotate normal
+exec_always feh --bg-scale /home/johnservo/Pictures/wallpaper/wallpaper.png
+exec_always xrandr --output DP-3 --mode 1920x1080 --pos 1920x0 --rotate normal HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
 exec_always picom 
-exec_always --no-startup-id autotiling
+exec_always autotiling

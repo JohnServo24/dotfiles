@@ -40,7 +40,11 @@ foreground = "0xabb2bf"
 shape = "Underline"
 
 [font]
-size = 7.5
+size = 12 
+
+[font.normal]
+family = "JetBrains Mono"
+style = "Regular"
 
 [font.bold]
 family = "JetBrains Mono"
@@ -53,10 +57,6 @@ style = "Bold Italic"
 [font.italic]
 family = "JetBrains Mono"
 style = "Italic"
-
-[font.normal]
-family = "JetBrains Mono"
-style = "Regular"
 
 [window]
 opacity = 0.9
